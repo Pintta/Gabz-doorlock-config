@@ -1,20 +1,16 @@
 fx_version 'cerulean'
 game 'gta5'
-
-description 'Doorlock system for the QBCore Framework'
-version '2.0.0'
-
+lua54 'yes'
 ui_page 'html/index.html'
 
 shared_scripts {
     'config.lua',
-    'configs/*.lua',
     '@qb-core/shared/locale.lua',
-    'locales/en.lua' -- Change this to your preferred language
+    'locales/en.lua'
 }
 
-server_script 'server/main.lua'
-client_script 'client/main.lua'
+server_script 'server.lua'
+client_script 'client.lua'
 
 files {
 	'html/*.html',
@@ -22,5 +18,3 @@ files {
 	'html/*.css',
 	'html/sounds/*.ogg',
 }
-
-lua54 'yes'
