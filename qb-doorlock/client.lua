@@ -11,7 +11,6 @@ local paused = false
 local usingAdvanced = false
 local doorData = {}
 
--- Functions
 function Draw3DText(coords, str)
     local onScreen, worldX, worldY = World3dToScreen2d(coords.x, coords.y, coords.z)
 	local camCoords = GetGameplayCamCoord()
@@ -21,9 +20,9 @@ function Draw3DText(coords, str)
         SetTextFont(4)
         SetTextColour(255, 255, 255, 255)
         SetTextEdge(2, 0, 0, 0, 150)
-		SetTextProportional(1)
-		SetTextOutline()
-		SetTextCentre(1)
+	SetTextProportional(1)
+	SetTextOutline()
+	SetTextCentre(1)
         SetTextEntry("STRING")
         AddTextComponentString(str)
         DrawText(worldX, worldY)
@@ -377,8 +376,6 @@ function SetupDoors()
 	end)
 	Config.DoorList = Citizen.Await(p)
 end
-
--- Events
 
 RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
 	QBCore.Functions.TriggerCallback('qb-doorlock:server:setupDoors', function(result)
@@ -734,8 +731,6 @@ RegisterNetEvent('qb-doorlock:client:ToggleDoorDebug', function()
 	HandleDoorDebug()
 end)
 
--- Commands
-
 RegisterCommand('toggledoorlock', function()
 	if not closestDoor.data or not next(closestDoor.data) then return end
 
@@ -809,11 +804,11 @@ end, false)
 TriggerEvent("chat:removeSuggestion", "/remotetriggerdoor")
 RegisterKeyMapping('remotetriggerdoor', Lang:t("general.keymapping_remotetriggerdoor"), 'keyboard', 'H')
 
--- Threads
-
 CreateThread(function()
-	if Config.PersistentDoorStates and isLoggedIn then Wait(1000) SetupDoors() end -- Required for pulling in door states properly from live ensures
-
+	if Config.PersistentDoorStates and isLoggedIn then
+			Wait(1000)
+			SetupDoors()
+	end
 	updateDoors()
 	HandleDoorDebug()
 	while true do
