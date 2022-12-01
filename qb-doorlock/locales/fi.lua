@@ -1,7 +1,7 @@
 local Translations = {
     error = {
         lockpick_fail = 'Et onnistunut",
-        door_not_found = 'Oven HASH ei löydy, katso silmällä ovea.",
+        door_not_found = 'Oven HASH ei löydy, katso silmällä ovea.',
         same_entity = 'Tämä ei ole mahdollista',
         door_registered = 'Tämä ovi on jo regattu',
         door_identifier_exists = 'Oven identiteetti löytyy jo asetuksesta. (%s)',
