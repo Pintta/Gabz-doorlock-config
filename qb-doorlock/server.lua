@@ -1,7 +1,5 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
--- Functions
-
 local function showWarning(msg)
 	print(('^3%s: %s^0'):format(Lang:t("general.warning"), msg))
 end
@@ -313,8 +311,6 @@ RegisterNetEvent('qb-doorlock:server:removeLockpick', function(type)
 		Player.Functions.RemoveItem(type, 1)
 	end
 end)
-
--- Commands
 
 QBCore.Commands.Add('newdoor', Lang:t("general.newdoor_command_description"), {}, false, function(source)
 	TriggerClientEvent('qb-doorlock:client:addNewDoor', source)
